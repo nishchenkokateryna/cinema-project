@@ -12,7 +12,6 @@ import org.hibernate.query.Query;
 
 @Dao
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
-
     @Override
     public ShoppingCart add(ShoppingCart shoppingCart) {
         Session session = null;
@@ -27,7 +26,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new DataProcessingException("Can't insert new shopping cart: " + shoppingCart, e);
+            throw new DataProcessingException("Can't insert shopping cart: " + shoppingCart, e);
         } finally {
             if (session != null) {
                 session.close();
