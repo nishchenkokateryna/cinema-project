@@ -8,20 +8,17 @@ import cinema.service.MovieService;
 import cinema.util.DateTimePatternUtil;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class MovieSessionMapper implements RequestDtoMapper<MovieSessionRequestDto, MovieSession>,
         ResponseDtoMapper<MovieSessionResponseDto, MovieSession> {
     private final DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern(DateTimePatternUtil.DATE_TIME_PATTERN);
     private final CinemaHallService cinemaHallService;
     private final MovieService movieService;
-
-    public MovieSessionMapper(CinemaHallService cinemaHallService, MovieService movieService) {
-        this.cinemaHallService = cinemaHallService;
-        this.movieService = movieService;
-    }
 
     @Override
     public MovieSession mapToModel(MovieSessionRequestDto dto) {
