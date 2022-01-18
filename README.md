@@ -19,16 +19,20 @@ and pass an answer as JSON object also implemented global exception handler.
 
 ## Overview
 #### Project has multiple endpoints with user and admin access
-POST: `/register` - ALL <br/>
-POST: `/cinema-halls`, `/movies`, `/movie-sessions` - ADMIN <br/>
-POST: `/orders/complete` - USER <br/>
-PUT: `/movie-sessions/{id}` - ADMIN <br/>
-PUT: `/shopping-carts/movie-sessions` - USER <br/>
-DELETE: `/movie-sessions/{id}` - ADMIN <br/>
-GET: `/orders` - USER <br/>
-GET: `/shopping-carts/by-user` - USER <br/>
-GET: `/cinema-halls `, `/movies`, `/movie-sessions/available`  - USER or ADMIN <br/>
-GET: `/users/by-email` - ADMIN <br/>
+POST: `/register` (to create a user) - ALL <br/>
+POST: `/cinema-halls` (to create a cinema hall) - ADMIN <br/>
+POST: `/movies` (to create a movie) - ADMIN <br/>
+POST: `/movie-sessions` (to create a movie sessions) - ADMIN <br/>
+POST: `/orders/complete` (to create an order for current user) - USER <br/>
+PUT: `/movie-sessions/{id}` (to update a movie session) - ADMIN <br/>
+PUT: `/shopping-carts/movie-sessions` (to add movie session to shopping cart) - USER <br/>
+DELETE: `/movie-sessions/{id}` (to delete a movie session) - ADMIN <br/>
+GET: `/orders` (to get order history for current user) - USER <br/>
+GET: `/shopping-carts/by-user` (to get a shopping cart for current user) - USER <br/>
+GET: `/cinema-halls ` (to get all cinema halls) - USER or ADMIN <br/>
+GET: `/movies` (to get all movies) - USER or ADMIN <br/>
+GET: `/movie-sessions/available` (to get all available movie by date) - USER or ADMIN <br/>
+GET: `/users/by-email` (to find user by email) - ADMIN <br/>
 #### Example how to add data into the application (using for example Postman)
 {"email":"bob", "password":"qwerty", "repeatPassword":"qwerty"}  POST: /register <br/>
 {"capacity":100, "description":"Old hall"}  POST: /cinema-halls <br/>
