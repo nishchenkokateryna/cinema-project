@@ -25,8 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/register").permitAll()
                 .antMatchers(HttpMethod.POST, "/orders/complete").hasRole(ROLE_USER)
                 .antMatchers(HttpMethod.POST,
@@ -43,8 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,
                          "/cinema-halls",
                                     "/movies",
-                                    "/movie-sessions/available",
-                                    "/movie-sessions/{id}").hasAnyRole(ROLE_ADMIN, ROLE_USER)
+                                    "/movie-sessions/available").hasAnyRole(ROLE_ADMIN, ROLE_USER)
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
