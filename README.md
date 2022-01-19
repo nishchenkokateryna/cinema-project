@@ -44,7 +44,7 @@ GET: `/users/by-email` (to find user by email) - ADMIN <br/>
 /shopping-carts/movie-sessions?movieSessionId=1  PUT <br/>
 /users/by-email?email=your email  GET <br/>
 
-## How to start taxi service locally:
+## How to start cinema service locally:
 1. Install and configure Apache Tomcat
 2. Install and configure and create a schema in MySQL
 3. Fork and clone this project
